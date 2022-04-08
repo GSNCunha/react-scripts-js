@@ -1,10 +1,13 @@
 /* eslint-disable prefer-const */
+import * as React from 'react';
 import orderBy from 'lodash/orderBy';
 import { Link as RouterLink } from 'react-router-dom';
 import { useEffect, useCallback, useState } from 'react';
 // @mui
 import { Grid, Button, Container, Stack, Box, Typography } from '@mui/material';
 // hooks
+// eslint-disable-next-line import/no-unresolved
+import BasicModal from 'src/sections/@dashboard/blog/BasicModal';
 import useSettings from '../../hooks/useSettings';
 import useIsMountedRef from '../../hooks/useIsMountedRef';
 // utils
@@ -18,7 +21,7 @@ import { SkeletonPostItem } from '../../components/skeleton';
 import HeaderBreadcrumbs from '../../components/HeaderBreadcrumbs';
 // sections
 import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../../sections/@dashboard/blog';
-import { Data } from './img/desktop';
+import { Data } from '../../components/img/desktop';
 
 // ----------------------------------------------------------------------
 
@@ -104,7 +107,6 @@ export default function BlogPosts() {
 
         <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
           <BlogPostsSearch />
-          <BlogPostsSort query={filters} options={SORT_OPTIONS} onSort={handleChangeSort} />
         </Stack>
 
         {data.map((x) => (
