@@ -8,8 +8,8 @@ fieldset {
 
 fieldset.show {
     display: block
-}
 
+}
 select:focus,
 input:focus {
     -moz-box-shadow: none !important;

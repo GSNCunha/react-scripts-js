@@ -1,28 +1,34 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Modal from '@mui/material/Modal';
-
 import './modal.css';
-
 import { useState } from 'react';
 import { paramCase } from 'change-case';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 import { useNavigate } from 'react-router-dom';
 // @mui
-import { styled } from '@mui/material/styles';
+import { styled, useTheme } from '@mui/material/styles';
 import {
+  Box,
   Link,
+  Card,
+  Avatar,
   Typography,
+  CardContent,
+  Stack,
+  Button,
+  Modal,
+  DialogTitle,
+  Tab,
+  Tabs,
+  AppBar,
+  Popper,
   Autocomplete,
   InputAdornment,
-  Popper,
-  Stack,
   TextField,
-  DialogTitle,
-  Card,
 } from '@mui/material';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+import TabContext from '@mui/lab/TabContext';
 // eslint-disable-next-line import/no-unresolved
 import { DialogAnimate } from 'src/components/animate';
 // hooks
@@ -59,10 +65,19 @@ export default function BlogPostsSearch() {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 600,
+    height: 600,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+  };
+
+  const [value, setValue] = React.useState('1');
+
+  const theme = useTheme();
+
+  const handleChangeModal = (event: React.SyntheticEvent, newValue: string) => {
+    setValue(newValue);
   };
 
   const navigate = useNavigate();
@@ -141,29 +156,30 @@ export default function BlogPostsSearch() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div>
-            <span className="modal-header d-flex justify-content-between mx-1 mx-sm-3 mb-0 pb-0 border-0">
-              <div className="tabs active" id="tab01">
-                <h6 className="text-muted">My Apps</h6>
-              </div>
-              <div className="tabs" id="tab02">
-                <h6 className="text-muted">Knowledge Center</h6>
-              </div>
-              <div className="tabs" id="tab03">
-                <h6 className="text-muted">Communities</h6>
-              </div>
-              <div className="tabs" id="tab04">
-                <h6 className="text-muted">Education</h6>
-              </div>
-            </span>
-          </div>
-          <DialogTitle>{searchQuery}</DialogTitle>
-          <Card>
-            <Box sx={{ position: 'relative' }}>
-              <Image alt="cover" src={queryPath} ratio="4/3" />
+          <TabContext value={value}>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+              <TabList onChange={handleChangeModal} variant="fullWidth" aria-label="lab API tabs example">
+                <Tab label="Item One" value="1" />
+                <Tab label="Item Two" value="2" />
+                <Tab label="Item Three" value="3" />
+              </TabList>
             </Box>
-          </Card>
-          <Button onClick={handleClose}>&times;</Button>
+            <TabPanel value="1">
+              <DialogTitle>{searchQuery}</DialogTitle>
+              <Card onClick={handleOpen}>
+                <Box sx={{ position: 'relative' }}>
+                  <Image alt="cover" src={queryPath} ratio="4/3" />
+                </Box>
+              </Card>
+              <Button onClick={handleClose}>x</Button>
+            </TabPanel>
+            <TabPanel value="2">
+              Item Two<Button onClick={handleClose}>x</Button>
+            </TabPanel>
+            <TabPanel value="3">
+              Item Three<Button onClick={handleClose}>x</Button>
+            </TabPanel>
+          </TabContext>
         </Box>
       </Modal>
     </div>
