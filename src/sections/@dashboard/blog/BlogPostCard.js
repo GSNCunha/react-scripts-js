@@ -19,6 +19,8 @@ import {
   Tabs,
   AppBar,
   Fab,
+  Grid,
+  Paper,
 } from '@mui/material';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -54,6 +56,18 @@ const fabStyle = {
   bottom: 16,
   right: 16,
 };
+const backgroundColorBlack = {
+  bgcolor: 'black',
+  color: 'success.main',
+};
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 // ----------------------------------------------------------------------
 
@@ -132,16 +146,65 @@ export default function BlogPostCard({ post, index }) {
                 </TabList>
               </Box>
               <TabPanel value="1">
-                <DialogTitle>{post.name}</DialogTitle>
-                <Card onClick={handleOpen}>
+                <DialogTitle variant="h3" align="center">
+                  {post.name}
+                </DialogTitle>
+
+                <Box>
+                  <Grid container spacing={0}>
+                    <Grid item xs={6}>
+                      <Item>
+                        <Card>
+                          <Box sx={{ position: 'relative' }}>
+                            <Image alt="cover" src={post.path} ratio="4/3" />
+                          </Box>
+                        </Card>
+                      </Item>
+                    </Grid>
+                    <Grid item xs={6}>
+                      <DialogTitle variant="h5" align="center">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident incidunt et sunt a officia
+                      </DialogTitle>
+                    </Grid>
+                  </Grid>
+                  <DialogTitle variant="h5" align="center">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident incidunt et sunt a officia quos
+                    dolor dolorum ex facere, molestiae, voluptatem debitis animi nulla at. Ut sunt ab consequuntur
+                    accusantium?
+                  </DialogTitle>
+                </Box>
+              </TabPanel>
+              <TabPanel value="2">
+                <DialogTitle variant="h3" align="center">
+                  {post.name}
+                </DialogTitle>
+                <Card>
                   <Box sx={{ position: 'relative' }}>
                     <Image alt="cover" src={post.path} ratio="4/3" />
                   </Box>
                 </Card>
               </TabPanel>
-              <TabPanel value="2">Item Two</TabPanel>
-              <TabPanel value="3">Item Three</TabPanel>
+              <TabPanel value="3">
+                <DialogTitle variant="h3" align="center">
+                  {post.name}
+                </DialogTitle>
+                <Card sx={backgroundColorBlack}>
+                  <pre>
+                    {`
+  <TabPanel value="1">
+    <DialogTitle>{post.name}</DialogTitle>
+    <Card onClick={handleOpen}>
+    <Box sx={{ position: 'relative' }}>
+      <Image alt="cover" src={post.path} ratio="4/3" />
+    </Box>
+    </Card>
+  </TabPanel>
+                      `}
+                  </pre>
+                </Card>
+              </TabPanel>
             </TabContext>
+
             <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
               Close
             </Fab>
@@ -199,16 +262,65 @@ export default function BlogPostCard({ post, index }) {
               </TabList>
             </Box>
             <TabPanel value="1">
-              <DialogTitle>{post.name}</DialogTitle>
-              <Card onClick={handleOpen}>
+              <DialogTitle variant="h3" align="center">
+                {post.name}
+              </DialogTitle>
+
+              <Box>
+                <Grid container spacing={0}>
+                  <Grid item xs={6}>
+                    <Item>
+                      <Card>
+                        <Box sx={{ position: 'relative' }}>
+                          <Image alt="cover" src={post.path} ratio="4/3" />
+                        </Box>
+                      </Card>
+                    </Item>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <DialogTitle variant="h5" align="center">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident incidunt et sunt a officia
+                    </DialogTitle>
+                  </Grid>
+                </Grid>
+                <DialogTitle variant="h5" align="center">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident incidunt et sunt a officia quos
+                  dolor dolorum ex facere, molestiae, voluptatem debitis animi nulla at. Ut sunt ab consequuntur
+                  accusantium?
+                </DialogTitle>
+              </Box>
+            </TabPanel>
+            <TabPanel value="2">
+              <DialogTitle variant="h3" align="center">
+                {post.name}
+              </DialogTitle>
+              <Card>
                 <Box sx={{ position: 'relative' }}>
                   <Image alt="cover" src={post.path} ratio="4/3" />
                 </Box>
               </Card>
             </TabPanel>
-            <TabPanel value="2">Item Two</TabPanel>
-            <TabPanel value="3">Item Three</TabPanel>
+            <TabPanel value="3">
+              <DialogTitle variant="h3" align="center">
+                {post.name}
+              </DialogTitle>
+              <Card sx={backgroundColorBlack}>
+                <pre>
+                  {`
+  <TabPanel value="1">
+    <DialogTitle>{post.name}</DialogTitle>
+    <Card onClick={handleOpen}>
+    <Box sx={{ position: 'relative' }}>
+      <Image alt="cover" src={post.path} ratio="4/3" />
+    </Box>
+    </Card>
+  </TabPanel>
+                      `}
+                </pre>
+              </Card>
+            </TabPanel>
           </TabContext>
+
           <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
             Close
           </Fab>
