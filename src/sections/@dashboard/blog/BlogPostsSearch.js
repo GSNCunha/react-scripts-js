@@ -25,6 +25,7 @@ import {
   Autocomplete,
   InputAdornment,
   TextField,
+  Fab,
 } from '@mui/material';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
@@ -52,6 +53,12 @@ const PopperStyle = styled((props) => <Popper placement="bottom-start" {...props
   width: '280px !important',
 });
 
+const fabStyle = {
+  position: 'absolute',
+  bottom: 16,
+  right: 16,
+};
+
 // ----------------------------------------------------------------------
 
 export default function BlogPostsSearch() {
@@ -65,11 +72,11 @@ export default function BlogPostsSearch() {
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 600,
-    height: 600,
+    height: 650,
     bgcolor: 'background.paper',
-    border: '2px solid #000',
     boxShadow: 24,
     p: 4,
+    borderRadius: 1,
   };
 
   const [value, setValue] = React.useState('1');
@@ -159,9 +166,9 @@ export default function BlogPostsSearch() {
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChangeModal} variant="fullWidth" aria-label="lab API tabs example">
-                <Tab label="Item One" value="1" />
-                <Tab label="Item Two" value="2" />
-                <Tab label="Item Three" value="3" />
+                <Tab label="Details" value="1" />
+                <Tab label="Design" value="2" />
+                <Tab label="Code" value="3" />
               </TabList>
             </Box>
             <TabPanel value="1">
@@ -171,15 +178,13 @@ export default function BlogPostsSearch() {
                   <Image alt="cover" src={queryPath} ratio="4/3" />
                 </Box>
               </Card>
-              <Button onClick={handleClose}>x</Button>
             </TabPanel>
-            <TabPanel value="2">
-              Item Two<Button onClick={handleClose}>x</Button>
-            </TabPanel>
-            <TabPanel value="3">
-              Item Three<Button onClick={handleClose}>x</Button>
-            </TabPanel>
+            <TabPanel value="2">Item Two</TabPanel>
+            <TabPanel value="3">Item Three</TabPanel>
           </TabContext>
+          <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
+            Close
+          </Fab>
         </Box>
       </Modal>
     </div>
