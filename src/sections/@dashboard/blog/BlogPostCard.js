@@ -162,9 +162,9 @@ export default function BlogPostCard({ post, index }) {
                       </Item>
                     </Grid>
                     <Grid item xs={6}>
-                      <DialogTitle variant="h5" align="center">
+                      <h5 align="center">
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident incidunt et sunt a officia
-                      </DialogTitle>
+                      </h5>
                     </Grid>
                   </Grid>
                   <DialogTitle variant="h5" align="center">
@@ -198,8 +198,7 @@ export default function BlogPostCard({ post, index }) {
       <Image alt="cover" src={post.path} ratio="4/3" />
     </Box>
     </Card>
-  </TabPanel>
-                      `}
+  </TabPanel>`}
                   </pre>
                 </Card>
               </TabPanel>
@@ -314,8 +313,7 @@ export default function BlogPostCard({ post, index }) {
       <Image alt="cover" src={post.path} ratio="4/3" />
     </Box>
     </Card>
-  </TabPanel>
-                      `}
+  </TabPanel>`}
                 </pre>
               </Card>
             </TabPanel>

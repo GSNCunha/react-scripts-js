@@ -238,8 +238,7 @@ export default function BlogPostsSearch() {
       <Image alt="cover" src={queryPath} ratio="4/3" />
     </Box>
     </Card>
-  </TabPanel>
-                      `}
+  </TabPanel>`}
                 </pre>
               </Card>
             </TabPanel>
