@@ -157,7 +157,7 @@ export default function BlogPostsSearch() {
               {...params}
               stretchStart={200}
               placeholder="Search post..."
-              onKeyUp={handleKeyUp}
+              onKeyDown={handleKeyUp}
               InputProps={{
                 ...params.InputProps,
                 startAdornment: (
@@ -177,6 +177,9 @@ export default function BlogPostsSearch() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
+            Close
+          </Fab>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChangeModal} variant="fullWidth" aria-label="lab API tabs example">
@@ -243,10 +246,6 @@ export default function BlogPostsSearch() {
               </Card>
             </TabPanel>
           </TabContext>
-
-          <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
-            Close
-          </Fab>
         </Box>
       </Modal>
     </div>

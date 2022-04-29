@@ -102,9 +102,13 @@ export default function BlogPostCard({ post, index }) {
     setValue(index);
   };
 
-  const handleOpen = () => setOpen(true);
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   const isDesktop = useResponsive('up', 'md');
 
@@ -139,6 +143,9 @@ export default function BlogPostCard({ post, index }) {
           <Box sx={style}>
             <TabContext value={value}>
               <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
+                  Close
+                </Fab>
                 <TabList onChange={handleChangeModal} variant="fullWidth" aria-label="lab API tabs example">
                   <Tab label="Details" value="1" />
                   <Tab label="Design" value="2" />
@@ -203,10 +210,6 @@ export default function BlogPostCard({ post, index }) {
                 </Card>
               </TabPanel>
             </TabContext>
-
-            <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
-              Close
-            </Fab>
           </Box>
         </Modal>
       </div>
@@ -252,6 +255,9 @@ export default function BlogPostCard({ post, index }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
+            Close
+          </Fab>
           <TabContext value={value}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
               <TabList onChange={handleChangeModal} variant="fullWidth" aria-label="lab API tabs example">
@@ -318,10 +324,6 @@ export default function BlogPostCard({ post, index }) {
               </Card>
             </TabPanel>
           </TabContext>
-
-          <Fab variant="extended" sx={fabStyle} onClick={handleClose}>
-            Close
-          </Fab>
         </Box>
       </Modal>
     </div>
