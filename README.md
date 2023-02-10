@@ -1,42 +1,40 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Accessible Design Library for Web Development
 
-## 1.Install
+This project is designed to be an accessible site, using ARIA and a11y concepts for designers. The site contains a variety of different designs for web developers to reference and implement in their projects. With the use of keyboard navigation, the site can be easily navigated without the use of a mouse. Additionally, designs can be filtered through a search box, still allowing for easy navigation without the use of a mouse.
 
-### npm
+## Technologies Used
+- React
+- Aria
 
+## Features
+- Easy navigation without the need for a mouse
+- Search box for filtering designs
+- Incorporation of ARIA and A11y concepts for accessibility
+
+## Getting Started
+
+1. Clone the repository to your local machine:
 ```
-npm i
-or
-npm i --legacy-peer-deps
+$ git clone git@github.com:GSNCunha/react-scripts-js.git
 ```
-
-### yarn
-
+2. Navigate to the root directory of the project:
 ```
-yarn install
+$ cd my-project
 ```
-
-## 2.Start
-
-```sh
-npm start
-or
-yarn start
+3. Install all required node modules:
 ```
-
-## 3.Build
-
-```sh
-npm run build or yarn build
+$ npm install
 ```
+4. Start the development server:
+```
+$ npm start
+```
+5. Open your web browser and navigate to http://localhost:3000. You should now see the application running.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.<br>
+Contributions are welcome! If you have any ideas for new features or bug fixes, please open an issue or a pull request.
 
-Your app is ready to be deployed.
+## License
 
-## User Guide
-
-You can find detailed instructions on using Create React App and many tips in [its documentation](https://facebook.github.io/create-react-app/).
+This project is licensed under the MIT License.
